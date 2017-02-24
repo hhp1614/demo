@@ -15,7 +15,6 @@ $('.btn-right').on('click',rightClickFn);
 timer = setInterval(timerFn,3000);
 //点击事件函数
 function btnClickFn () {
-  console.log($(this).index());
   clearInterval(timer);
   $('#box img').stop(true,true);
   index = $(this).index();
