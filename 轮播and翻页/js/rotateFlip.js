@@ -26,7 +26,7 @@ function leftClickFn () {
   clearInterval(timer);
   $('#box img').stop(true,true);
   if(index <= 0) {
-    index = $('#box img').length-1;
+    index = $('#box img').length;
   }
   index--;
   $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
