@@ -15,41 +15,41 @@ $('.btn-right').on('click',rightClickFn);
 timer = setInterval(timerFn,3000);
 //点击事件函数
 function btnClickFn () {
-  clearInterval(timer);
-  $('#box img').stop(true,true);
-  index = $(this).index();
-  $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
-  $('.box-btn').removeClass('active').eq(index).addClass('active');
-  timer = setInterval(timerFn,3000);
+    clearInterval(timer);
+    $('#box img').stop(true,true);
+    index = $(this).index();
+    $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
+    $('.box-btn').removeClass('active').eq(index).addClass('active');
+    timer = setInterval(timerFn,3000);
 }
 function leftClickFn () {
-  clearInterval(timer);
-  $('#box img').stop(true,true);
-  if(index <= 0) {
+    clearInterval(timer);
+    $('#box img').stop(true,true);
+    if(index <= 0) {
     index = $('#box img').length;
-  }
-  index--;
-  $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
-  $('.box-btn').removeClass('active').eq(index).addClass('active');
-  timer = setInterval(timerFn,3000);
+    }
+    index--;
+    $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
+    $('.box-btn').removeClass('active').eq(index).addClass('active');
+    timer = setInterval(timerFn,3000);
 }
 function rightClickFn () {
-  clearInterval(timer);
-  $('#box img').stop(true,true);
-  if(index >= $('#box img').length-1) {
+    clearInterval(timer);
+    $('#box img').stop(true,true);
+    if(index >= $('#box img').length-1) {
     index = -1;
-  }
-  index++;
-  $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
-  $('.box-btn').removeClass('active').eq(index).addClass('active');
-  timer = setInterval(timerFn,3000);
+    }
+    index++;
+    $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
+    $('.box-btn').removeClass('active').eq(index).addClass('active');
+    timer = setInterval(timerFn,3000);
 }
 //计时器函数
 function timerFn () {
-  if(index >= $('#box img').length-1) {
+    if(index >= $('#box img').length-1) {
     index = -1;
-  }
-  index++;
-  $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
-  $('.box-btn').removeClass('active').eq(index).addClass('active');
+    }
+    index++;
+    $('#box img').fadeOut('slow').eq(index).fadeIn('slow');
+    $('.box-btn').removeClass('active').eq(index).addClass('active');
 }
