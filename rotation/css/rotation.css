@@ -44,6 +44,8 @@ ul, li {
     display: block;
 
     height: 100%;
+    
+    text-decoration: none;
 }
 #img-list .item img {
     width: 100%;
