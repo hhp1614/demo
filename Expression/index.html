@@ -61,7 +61,7 @@
 <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment.min.js"></script>
 <script src="https://cdn.bootcss.com/moment.js/2.22.1/locale/zh-cn.js"></script>
 <script>
-    const input = document.getElementById("input");
+    const input = document.querySelector("#input");
     const content = document.querySelector('#content');
     let timer = null;
 
@@ -87,7 +87,7 @@
         html2canvas(input, {
             onrendered(canvas) {
                 // canvas to image
-                const img = document.getElementById('img');
+                const img = document.querySelector('#img');
                 img.src = canvas.toDataURL('image/png');
             }
         });
