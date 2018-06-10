@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>今天这个仇，我先记下了</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #efefef;
+        }
+        .container > div {
+            vertical-align: top;
+        }
+        #input, #output {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            background: #fff;
+        }
+        #input img, #output img {
+            width: 100%;
+        }
+        #input p {
+            width: 100%;
+            word-break: break-all;
+            margin: 0 0 5px 0;
+        }
+        #img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        h2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>左边改文本，右边是图片</h2>
+<div class="container">
+    <div id="input">
+        <img src="grudges.png">
+        <p id="content" contentEditable></p>
+    </div>
+    <div id="output">
+        <img id="img">
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.22.1/moment.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.22.1/locale/zh-cn.js"></script>
+<script>
+    const input = document.getElementById("input");
+    const content = document.querySelector('#content');
+    let timer = null;
+
+    main();
+
+    function main() {
+        default_content();
+        change();
+        content.oninput = change;
+    }
+
+    function change() {
+        debounce(html2image, 500)
+    }
+
+    function debounce(fn, delay) {
+        clearTimeout(timer);
+        timer = setTimeout(fn, delay);
+    }
+
+    function html2image() {
+        // html to canvas
+        html2canvas(input, {
+            onrendered(canvas) {
+                // canvas to image
+                const img = document.getElementById('img');
+                img.src = canvas.toDataURL('image/png');
+            }
+        });
+    }
+
+    function default_content() {
+        const t = moment().format('YYYY年MM月DD日 HH点mm分');
+        const text = `${t} 没人陪我玩，这个仇我先记下来了`;
+        content.innerText = text;
+    }
+</script>
+</body>
+</html>
