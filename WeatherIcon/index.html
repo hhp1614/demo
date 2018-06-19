@@ -1,8 +1,38 @@
 <title>纯CSS实现带动画的天气图案</title>
+
 <link rel="stylesheet" href="./weather-animated-icon.css">
+
+<style>
+body {
+    font-family: sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    font-weight: 400;
+    position: absolute;
+    width: 100%;
+  font-size: 15px;
+    top: 50%;
+    margin-top: -130px;
+    opacity: .6;
+    letter-spacing: 2px;
+}
+
+.container {
+    background: linear-gradient(left, #00BBFF, #00BBFF 14.3%, #2EB5E5 14.3%, #2EB5E5 28.6%, #E6E6E6 28.6%, #E6E6E6 42.9%, #F3D166 42.9%, #F3D166 57.2%, #222233 57.2%, #222233 71.5%, #444444 71.5%, #444444 85.8%, #85DB8C 85.8%);
+    transform: scale(.9);
+    width: 1200px;
+    position: absolute;
+    height: 210px;
+    left: 50%;
+    top: 50%;
+    margin: -65px -600px;
+}
+</style>
+
 <h1>纯CSS实现带动画的天气图案</h1>
-<div id="fabrizio"></div>
-<a href="http://fabrizio.co">fabrizio.co</a>
 
 <div class="container">
     <div class="sunny"></div> 
